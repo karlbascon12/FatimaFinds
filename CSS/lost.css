@@ -1,0 +1,56 @@
+/* Reset & body */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: #f7f7f7; color: #222; }
+
+/* Hero Section */
+.hero {
+  background-color: #1f6f3a;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-links a:hover { text-decoration: underline; }
+.hero-logo { width: 150px; margin-bottom: 15px; }
+.hero h1 { font-size: 28px; font-weight: 600; }
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.main-content p { margin-bottom: 30px; font-size: 18px; }
+
+/* Form Embed */
+.form-container iframe {
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 24px; }
+  .main-content { padding: 20px; margin: 20px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 20px; }
+  .main-content p { font-size: 16px; }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima-Finds</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/home.css">
+</head>
+<body>
+
+  <script>
+  if (sessionStorage.getItem('loaderShown')) {
+    document.documentElement.classList.add('skip-loader');
+  }
+</script>
+
+  <!-- Loader (HOME ONLY) -->
+ <div id="loader">
+  <div class="loader-content">
+    <img src="images/FATIMAFINDHUB.png" class="loader-logo" alt="Logo">
+    <div class="loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+  <header class="hero" id="top">
+    <nav class="nav-links">
+      <a href="home.html" id="homeLink">Home</a>
+      <a href="pages/lost.html">Lost</a>
+      <a href="pages/found.html">Found</a>
+    </nav>
+
+    <div class="hero-content">
+      <img src="images/FATIMAFINDHUB.png" class="hero-logo" alt="Fatima FindHub Logo">
+    </div>
+  </header>
+
+  <main class="main-text">
+    <p>
+      Fatima FindHub exists for one simple reason: to make finding lost stuff way easier.
+      Everything is centralized, organized, and designed to save time.
+    </p>
+
+    <section class="image-gallery">
+      <a href="pages/found.html" class="clickable-card" data-tooltip="Report an item you found">
+        <img src="images/FOUND ICON (1).png" alt="Found item">
+        <p class="card-text">Found an item?</p>
+      </a>
+
+      <a href="pages/lost.html" class="clickable-card" data-tooltip="Report an item you lost">
+        <img src="images/LOST ICON.png" alt="Lost item">
+        <p class="card-text">Lost an item?</p>
+      </a>
+    </section>
+  </main>
+
+  <script>
+  const loader = document.getElementById('loader');
+  const MIN_TIME = 1500;
+  const start = Date.now();
+
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('loaderShown')) return;
+
+    sessionStorage.setItem('loaderShown', 'true');
+
+    const elapsed = Date.now() - start;
+    const wait = Math.max(MIN_TIME - elapsed, 0);
+
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 400);
+    }, wait);
+  });
+</script>
+
+  <!-- Navigation with authentication -->
+  <script type="module" src="js/navigation.js"></script>
+
+</body>
+</html>

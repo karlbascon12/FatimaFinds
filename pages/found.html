@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Found Items | Fatima FindHub</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../CSS/home.css">
+  <link rel="stylesheet" href="../CSS/found.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hero" id="top">
+    <nav class="nav-links">
+      <a href="../home.html">Home</a>
+      <a href="lost.html">Lost</a>
+      <a href="found.html">Found</a>
+    </nav>
+
+    <div class="hero-content">
+      <img src="../images/FATIMAFINDHUB.png"
+           class="hero-logo"
+           alt="Fatima FindHub Logo">
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="found-main">
+    <div class="page-header">
+      <h1 class="page-title">Found Items</h1>
+      <div id="authStatus" class="auth-status public">Public View</div>
+    </div>
+    
+    <!-- Login Prompt (shown when not logged in) -->
+    <div id="loginPrompt" class="login-prompt" style="display: none;">
+      <p>Want to post? <a href="../login.html">Login</a> with an admin account.</p>
+    </div>
+    
+    <!-- Admin Post Form (hidden for non-admins) -->
+    <div id="postForm" class="post-form-container" style="display: none;">
+      <div class="form-header">
+        <h2>Create New Post</h2>
+        <p class="form-subtitle">Share found items with the community</p>
+      </div>
+      <form id="createPostForm" class="post-form">
+        <div class="form-group">
+          <label for="postText">What did you find?</label>
+          <textarea 
+            id="postText" 
+            name="postText" 
+            rows="4" 
+            placeholder="Describe the item you found, location, and any relevant details..."
+            class="form-textarea"
+            maxlength="1000"></textarea>
+          <div class="char-count"><span id="charCount">0</span>/1000</div>
+        </div>
+        <div class="form-group">
+          <label for="postImage">Upload Image (optional)</label>
+          <div class="file-input-wrapper">
+            <input 
+              type="file" 
+              id="postImage" 
+              name="postImage" 
+              accept="image/*"
+              class="form-file">
+            <label for="postImage" class="file-input-label">
+              <span class="file-input-icon">📷</span>
+              <span class="file-input-text">Choose Image</span>
+            </label>
+          </div>
+          <div id="imagePreview" class="image-preview" style="display: none;"></div>
+          <div id="uploadProgress" class="upload-progress" style="display: none;">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <div id="postError" class="error-message" style="display: none;"></div>
+        <div id="postSuccess" class="success-message" style="display: none;"></div>
+        <button type="submit" id="postButton" class="btn-primary">
+          <span>Post</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Posts Feed -->
+    <div class="posts-section">
+      <div class="section-header">
+        <h2>Recent Posts</h2>
+        <div class="posts-count" id="postsCount"></div>
+      </div>
+      <div id="postsContainer" class="posts-container">
+        <div class="loading-container">
+          <div class="loading-spinner"></div>
+          <p>Loading posts...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Navigation with authentication -->
+  <script type="module" src="../js/navigation.js"></script>
+  
+  <!-- Found page functionality -->
+  <script type="module" src="../js/found.js"></script>
+
+  <!-- Character counter for textarea -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const textInput = document.getElementById('postText');
+      const charCount = document.getElementById('charCount');
+      
+      if (textInput && charCount) {
+        textInput.addEventListener('input', () => {
+          charCount.textContent = textInput.value.length;
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
