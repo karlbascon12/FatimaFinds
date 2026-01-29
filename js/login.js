@@ -42,7 +42,7 @@ loginForm.addEventListener('submit', async (e) => {
   
   if (result.success) {
     // Redirect to home page
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
   } else {
     // Show error message
     submitButton.disabled = false;

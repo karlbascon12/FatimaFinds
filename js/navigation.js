@@ -35,7 +35,7 @@ export function updateNavigation() {
         e.preventDefault();
         const result = await signOutUser();
         if (result.success) {
-          window.location.href = basePath + 'home.html';
+          window.location.href = basePath + 'index.html';
         }
       });
     } else {

@@ -1,4 +1,4 @@
-# Quick Setup Guide - Security Rules
+0# Quick Setup Guide - Security Rules
 
 ## 🎯 You Need BOTH Rules!
 

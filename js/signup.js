@@ -52,7 +52,7 @@ signupForm.addEventListener('submit', async (e) => {
     
     // Redirect to home page after a longer delay to let user read the message
     setTimeout(() => {
-      window.location.href = 'home.html';
+      window.location.href = 'index.html';
     }, 4000);
   } else {
     // Show error message
