@@ -14,7 +14,6 @@ body { font-family: 'Montserrat', sans-serif; background: #f7f7f7; color: #222; 
   opacity: 1;
   transition: opacity 0.4s ease;
 }
-
 .loader-logo {
   width: 150px;
   margin-bottom: 20px;
@@ -24,7 +23,6 @@ body { font-family: 'Montserrat', sans-serif; background: #f7f7f7; color: #222; 
   0% { transform: translateY(0); }
   100% { transform: translateY(-12px); }
 }
-
 /* Dots animation */
 .loader-dots {
   display: flex;
@@ -44,7 +42,6 @@ body { font-family: 'Montserrat', sans-serif; background: #f7f7f7; color: #222; 
   0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
   40% { transform: scale(1); opacity: 1; }
 }
-
 body.loaded #loader {
   opacity: 0;
   pointer-events: none;
@@ -62,7 +59,6 @@ body.loaded #loader {
   position: relative;
   padding: 20px;
 }
-
 .nav-links {
   position: absolute;
   top: 20px;
@@ -70,7 +66,6 @@ body.loaded #loader {
   display: flex;
   gap: 25px;
 }
-
 .nav-links a {
   color: white;
   text-decoration: none;
@@ -78,7 +73,6 @@ body.loaded #loader {
   transition: color 0.3s, text-decoration 0.3s;
 }
 .nav-links a:hover { color: #d4ffd4; text-decoration: underline; }
-
 .hero-content { text-align: center; }
 .hero-logo { width: 280px; margin-bottom: 15px; transition: transform 0.3s; }
 .hero-logo:hover { transform: scale(1.05); }
@@ -123,8 +117,6 @@ body.loaded #loader {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
-
-/* Card images */
 .clickable-card img {
   width: 100px;
   height: 100px;
@@ -134,8 +126,6 @@ body.loaded #loader {
   transition: transform 0.35s;
 }
 .clickable-card:hover img { transform: scale(1.1); }
-
-/* Card text */
 .card-text {
   font-weight: 600;
   font-size: 16px;
@@ -160,10 +150,43 @@ body.loaded #loader {
   z-index: 10;
 }
 
+/* Posts section */
+.posts-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.posts-section .post {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.post-header { margin-bottom: 8px; }
+.post-category {
+  font-weight: 700;
+  color: #1f6f3a;
+  font-size: 14px;
+}
+.post-text { font-size: 16px; line-height: 1.5; color: #333; }
+
+/* Post count */
+.posts-count { font-weight: 500; color: #1f6f3a; margin-top: 5px; }
+
+/* Form styles */
+.post-form-container { max-width: 700px; margin: 0 auto 40px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
+.form-group { margin-bottom: 20px; }
+.form-textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; resize: vertical; font-size: 14px; }
+.form-select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
+.btn-primary { background-color: #1f6f3a; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+.btn-primary:hover { background-color: #145122; }
+
 /* Responsive */
 @media (max-width: 768px) {
   .image-gallery { flex-direction: column; align-items: center; }
   .clickable-card { width: 60%; padding: 25px; }
+  .posts-section { padding: 0 15px; }
 }
 @media (max-width: 480px) {
   .clickable-card { width: 80%; }
@@ -171,6 +194,4 @@ body.loaded #loader {
   .nav-links { top: 10px; right: 15px; gap: 15px; }
 }
 
-.skip-loader #loader {
-  display: none !important;
-}
+.skip-loader #loader { display: none !important; }
