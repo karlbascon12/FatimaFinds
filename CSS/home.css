@@ -48,34 +48,48 @@ body.loaded #loader {
   visibility: hidden;
 }
 
-/* Hero Section */
+/* Hero Section (MATCHES LOST & FOUND PAGE) */
 .hero {
   background-color: #1f6f3a;
-  height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 20px;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
 }
+
+/* Navigation centered */
 .nav-links {
-  position: absolute;
-  top: 20px;
-  right: 30px;
   display: flex;
+  justify-content: center;
   gap: 25px;
+  margin-bottom: 20px;
 }
+
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s, text-decoration 0.3s;
+  transition: 0.3s;
 }
-.nav-links a:hover { color: #d4ffd4; text-decoration: underline; }
-.hero-content { text-align: center; }
-.hero-logo { width: 280px; margin-bottom: 15px; transition: transform 0.3s; }
-.hero-logo:hover { transform: scale(1.05); }
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Logo size same as Lost/Found */
+.hero-content {
+  text-align: center;
+}
+
+.hero-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+}
 
 /* Main content */
 .main-text {
@@ -195,3 +209,4 @@ body.loaded #loader {
 }
 
 .skip-loader #loader { display: none !important; }
+

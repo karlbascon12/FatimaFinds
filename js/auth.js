@@ -13,6 +13,8 @@ import {
   verifyPasswordResetCode
 } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
+const ADMIN_EMAIL = "adminngolfu7@gmail.com";
+
 // Check if user is authenticated
 export function checkAuth() {
   return new Promise((resolve) => {
@@ -135,7 +137,8 @@ export async function sendPasswordReset(email) {
   try {
     // Validate email domain
     const allowedDomain = '@student.fatima.edu.ph';
-    if (!email.endsWith(allowedDomain)) {
+
+if (!email.endsWith(allowedDomain) && email !== ADMIN_EMAIL) {
       return { 
         success: false, 
         error: `Only email addresses ending with ${allowedDomain} are allowed.` 
@@ -206,4 +209,9 @@ export async function confirmPasswordResetAction(actionCode, newPassword) {
     
     return { success: false, error: errorMessage };
   }
+}
+
+// Check if current user is admin
+export function isAdmin(user) {
+  return user && user.email === ADMIN_EMAIL;
 }

@@ -274,7 +274,11 @@ function displayPosts(posts) {
           <div class="post-author-info">
             <div class="author-avatar">${getInitials(post.authorName || post.authorEmail)}</div>
             <div>
-              <div class="post-author">${escapeHtml(post.authorName || post.authorEmail.split('@')[0])}</div>
+              <div class="post-author">${
+  post.authorEmail === "adminngolfu7@gmail.com"
+    ? "ADMIN"
+    : escapeHtml(post.authorName || post.authorEmail.split('@')[0])
+}</div>
               <div class="post-date">${formatDate(post.createdAt)}</div>
             </div>
           </div>
@@ -419,3 +423,20 @@ window.addEventListener('beforeunload', () => {
     unsubscribePosts();
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+
+  if (searchInput) {
+    searchInput.addEventListener("keyup", function () {
+      let filter = this.value.toLowerCase();
+      let posts = document.querySelectorAll(".post-card");
+
+      posts.forEach(function (post) {
+        let text = post.textContent.toLowerCase();
+        post.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+  }
+});
+

@@ -15,12 +15,14 @@ loginForm.addEventListener('submit', async (e) => {
   }
   
   // Get form values
-  const email = document.getElementById('email').value.trim();
+  const email = document.getElementById('email').value.trim().toLowerCase();
   const password = document.getElementById('password').value;
   
   // Validate email domain
-  const allowedDomain = '@student.fatima.edu.ph';
-  if (!email.endsWith(allowedDomain)) {
+const allowedDomain = '@student.fatima.edu.ph';
+const adminEmail = 'adminngolfu7@gmail.com';
+
+if (!email.endsWith(allowedDomain) && email !== adminEmail) {
     submitButton.disabled = false;
     submitButton.textContent = 'Sign In';
     

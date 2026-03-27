@@ -33,7 +33,19 @@
 
   <!-- PAGE CONTENT -->
   <main class="found-main">
-    <div class="page-header">
+    <!-- Google Form Section -->
+<div class="form-container">
+  <h2>Report a Found Item</h2>
+
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSf6emjNfR2d27AvPip9fISIXd4DcxHGyzBz88yyLIAcdcN_SQ/viewform?embedded=true"
+    width="100%" 
+    height="2000" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
       <h1 class="page-title">Found Items</h1>
       <div id="authStatus" class="auth-status public">Public View</div>
     </div>
@@ -92,6 +104,9 @@
     <div class="posts-section">
       <div class="section-header">
         <h2>Recent Posts</h2>
+        <div class="recent-search">
+    <input type="text" id="searchInput" placeholder="Search recent posts...">
+</div>
         <div class="posts-count" id="postsCount"></div>
       </div>
       <div id="postsContainer" class="posts-container">
@@ -124,4 +139,15 @@
   </script>
 
 </body>
-</html>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let posts = document.querySelectorAll(".post-card");
+
+    posts.forEach(function(post) {
+        let text = post.textContent.toLowerCase();
+        post.style.display = text.includes(filter) ? "" : "none";
+    });
+});
+</script>
